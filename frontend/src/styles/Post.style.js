@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PostContainer = styled.div`
   display: flex;
-  margin: 10px;
+  margin-top: 25px;
   width: 319px;
   align-items: center;
   flex-direction: column;
@@ -16,8 +16,20 @@ export const PostThumbnail = styled.div`
   width: 320px;
   height: 200px;
   position: relative;
+  animation: ${({ loading }) =>
+    loading ? "loading 0.5s  infinite alternate" : ""};
+  @keyframes loading {
+    0% {
+      background-color: hsl(0, 0%, 25%);
+      opacity: 0.7;
+    }
+    100% {
+      background-color: hsl(0, 0%, 25%);
+      opacity: 1;
+    }
+  }
   @media screen and (max-width: 700px) {
-    width: 100%;
+    width: ${({ loading }) => (loading ? "320px" : "100%")};
   }
 `;
 
@@ -34,7 +46,7 @@ export const PostBottomContainer = styled.div`
   justify-content: space-between;
   margin-top: 5px;
   @media screen and (max-width: 700px) {
-    width: 100%;
+    width: ${({ loading }) => (loading ? "319px" : "100%")};
   }
 `;
 export const ChannelContainer = styled.div`
@@ -46,6 +58,7 @@ export const ChannelContainer = styled.div`
 export const ChannelLogo = styled.div`
   width: 36px;
   height: 36px;
+
   cursor: pointer;
 `;
 export const Image = styled.img`

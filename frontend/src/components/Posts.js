@@ -46,7 +46,7 @@ const Container = styled.div`
   }
   @media screen and (max-width: 512px) {
     grid-template-columns: repeat(1, 1fr);
-    max-width: 95%;
+    max-width: 70%;
     margin: auto;
   }
 `;

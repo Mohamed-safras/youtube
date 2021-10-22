@@ -15,7 +15,7 @@ const Home = ({ video, loading }) => {
       />
       <SideBar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
       <Overlay showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
-      <Feed video={video} />
+      <Feed loading={loading} video={video} />
     </Container>
   );
 };

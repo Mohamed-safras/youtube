@@ -66,7 +66,7 @@ const Nav = ({ showSidebar, setShowSidebar, loading }) => {
                 changeSearchBar={changeSearchBar}
                 setChangeSearchBar={setChangeSearchBar}
               />
-              <Loading />
+              <Loading type="navloading" />
             </div>
           ) : (
             <NavBarRightContainer
