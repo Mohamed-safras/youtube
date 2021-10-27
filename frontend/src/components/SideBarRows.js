@@ -1,222 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import SideBarRow from "./SideBarRow";
-import { ReactComponent as home } from "../styles/icons/home.svg";
+import { ReactComponent as homeFill } from "../styles/icons/home.svg";
+import { ReactComponent as home } from "../styles/icons/homefill.svg";
+import { ReactComponent as exploreactive } from "../styles/icons/exploreactive.svg";
 import { ReactComponent as explore } from "../styles/icons/explore.svg";
 import { ReactComponent as subscription } from "../styles/icons/subcription.svg";
-import { ReactComponent as library } from "../styles/icons/library.svg";
-import { ReactComponent as history } from "../styles/icons/history.svg";
-import { ReactComponent as yourvideo } from "../styles/icons/your-videos.svg";
-import { ReactComponent as watchlater } from "../styles/icons/watch-later.svg";
+import { ReactComponent as subscriptionactive } from "../styles/icons/subcriptionactive.svg";
 
 const sidebarrow = [
   {
     id: 1,
     title: "Home",
     icon: home,
+    iconActive: homeFill,
   },
   {
     id: 2,
     title: "Explore",
     icon: explore,
+    iconActive: exploreactive,
   },
   {
     id: 3,
     title: "Subscriptions",
     icon: subscription,
-  },
-  {
-    id: 4,
-    title: "Library",
-    icon: library,
-  },
-  {
-    id: 5,
-    title: "History",
-    icon: history,
-  },
-  {
-    id: 6,
-    title: "Your videos",
-    icon: yourvideo,
-  },
-  {
-    id: 7,
-    title: "watch later",
-    icon: watchlater,
+    iconActive: subscriptionactive,
   },
 ];
 
 const SideBarRows = ({ showSidebar, setShowSidebar }) => {
+  const [changePage, setChangePage] = useState("Home");
   return (
     <Container>
-      {sidebarrow
-        .filter((item) => {
-          return item.id < 4;
-        })
-        .map((item) => (
-          <SideBarRow
-            key={item.id}
-            showSidebar={showSidebar}
-            setShowSidebar={setShowSidebar}
-            title={item.title}
-            Icon={item.icon}
-          />
-        ))}
+      {sidebarrow.map((item) => (
+        <SideBarRow
+          changePage={changePage}
+          setChangePage={setChangePage}
+          key={item.id.toString()}
+          showSidebar={showSidebar}
+          setShowSidebar={setShowSidebar}
+          title={item.title}
+          Icon={item.icon}
+          IconActive={item.iconActive}
+        />
+      ))}
       <Border />
-      {sidebarrow
-        .filter((item) => {
-          return item.id > 3 && item.id < 8;
-        })
-        .map((item) => (
-          <SideBarRow
-            key={item.id}
-            showSidebar={showSidebar}
-            setShowSidebar={setShowSidebar}
-            title={item.title}
-            Icon={item.icon}
-          />
-        ))}
-      <Border />
-      {sidebarrow
-        .filter((item) => {
-          return item.id < 4;
-        })
-        .map((item) => (
-          <SideBarRow
-            key={item.id}
-            showSidebar={showSidebar}
-            setShowSidebar={setShowSidebar}
-            title={item.title}
-            Icon={item.icon}
-          />
-        ))}
-      <Border />
-      {sidebarrow
-        .filter((item) => {
-          return item.id > 3 && item.id < 8;
-        })
-        .map((item) => (
-          <SideBarRow
-            key={item.id}
-            showSidebar={showSidebar}
-            setShowSidebar={setShowSidebar}
-            title={item.title}
-            Icon={item.icon}
-          />
-        ))}
-      <Border />
-      {sidebarrow
-        .filter((item) => {
-          return item.id < 4;
-        })
-        .map((item) => (
-          <SideBarRow
-            key={item.id}
-            showSidebar={showSidebar}
-            setShowSidebar={setShowSidebar}
-            title={item.title}
-            Icon={item.icon}
-          />
-        ))}
-      <Border />
-      {sidebarrow
-        .filter((item) => {
-          return item.id > 3 && item.id < 8;
-        })
-        .map((item) => (
-          <SideBarRow
-            key={item.id}
-            showSidebar={showSidebar}
-            setShowSidebar={setShowSidebar}
-            title={item.title}
-            Icon={item.icon}
-          />
-        ))}
-      <Border />
-      {sidebarrow
-        .filter((item) => {
-          return item.id < 4;
-        })
-        .map((item) => (
-          <SideBarRow
-            key={item.id}
-            showSidebar={showSidebar}
-            setShowSidebar={setShowSidebar}
-            title={item.title}
-            Icon={item.icon}
-          />
-        ))}
-      <Border />
-      {sidebarrow
-        .filter((item) => {
-          return item.id > 3 && item.id < 8;
-        })
-        .map((item) => (
-          <SideBarRow
-            key={item.id}
-            showSidebar={showSidebar}
-            setShowSidebar={setShowSidebar}
-            title={item.title}
-            Icon={item.icon}
-          />
-        ))}
-      <Border />
-      {sidebarrow
-        .filter((item) => {
-          return item.id < 4;
-        })
-        .map((item) => (
-          <SideBarRow
-            key={item.id}
-            showSidebar={showSidebar}
-            setShowSidebar={setShowSidebar}
-            title={item.title}
-            Icon={item.icon}
-          />
-        ))}
-      <Border />
-      {sidebarrow
-        .filter((item) => {
-          return item.id > 3 && item.id < 8;
-        })
-        .map((item) => (
-          <SideBarRow
-            key={item.id}
-            showSidebar={showSidebar}
-            setShowSidebar={setShowSidebar}
-            title={item.title}
-            Icon={item.icon}
-          />
-        ))}
-      <Border />
-      {sidebarrow
-        .filter((item) => {
-          return item.id < 4;
-        })
-        .map((item) => (
-          <SideBarRow
-            key={item.id}
-            showSidebar={showSidebar}
-            setShowSidebar={setShowSidebar}
-            title={item.title}
-            Icon={item.icon}
-          />
-        ))}
-      <Border />
-      {sidebarrow
-        .filter((item) => {
-          return item.id > 3 && item.id < 8;
-        })
-        .map((item) => (
-          <SideBarRow
-            key={item.id}
-            showSidebar={showSidebar}
-            setShowSidebar={setShowSidebar}
-            title={item.title}
-            Icon={item.icon}
-          />
-        ))}
     </Container>
   );
 };

@@ -29,14 +29,14 @@ import {
   CloseIconBtn,
 } from "../styles/Nav.style";
 import { IconButton } from "@mui/material";
-import Loading from "./SkeletonLoading/Loading";
+import Loading from "../components/Loading";
 const Nav = ({ showSidebar, setShowSidebar, loading }) => {
   const [changeSearchBar, setChangeSearchBar] = useState(false);
   const [input, setInput] = useState("");
   const [data, setData] = useState([]);
 
   return (
-    <>
+    <React.Fragment>
       {changeSearchBar ? (
         <SmallScreenNav
           data={data}
@@ -76,7 +76,7 @@ const Nav = ({ showSidebar, setShowSidebar, loading }) => {
           )}
         </NavContainer>
       )}
-    </>
+    </React.Fragment>
   );
 };
 
@@ -96,14 +96,14 @@ const SmallScreenNav = ({
         <ArrowBackIconbtn />
       </IconButton>
     </BackBtnContainer>
-    <>
+    <React.Fragment>
       <FormInputContainer
         data={data}
         setData={setData}
         input={input}
         setInput={setInput}
       />
-    </>
+    </React.Fragment>
   </NavSmallContainer>
 );
 
@@ -116,7 +116,7 @@ const FormInputContainer = ({ input, setInput, data, setData }) => {
     setInput("");
   };
   return (
-    <>
+    <React.Fragment>
       <Form onSubmit={handleSubmit}>
         <InputContainer>
           <Input
@@ -134,7 +134,7 @@ const FormInputContainer = ({ input, setInput, data, setData }) => {
       <MicContainer>
         <MicButton />
       </MicContainer>
-    </>
+    </React.Fragment>
   );
 };
 
@@ -160,7 +160,7 @@ const SmallScreenNavIcon = ({
   setChangeSearchBar,
   noLoading,
 }) => (
-  <>
+  <React.Fragment>
     <IconSearchMicConatiner>
       <IconButton onClick={() => setChangeSearchBar(!changeSearchBar)}>
         <SearchIconBtn />
@@ -173,7 +173,7 @@ const SmallScreenNavIcon = ({
         </IconButton>
       </IconSearchMicConatiner>
     )}
-  </>
+  </React.Fragment>
 );
 
 const NavBarRightContainer = ({ changeSearchBar, setChangeSearchBar }) => (

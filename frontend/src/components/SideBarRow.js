@@ -1,22 +1,37 @@
-import React from "react";
 import styled from "styled-components";
-const SideBarRow = ({ title, Icon, showSidebar, setShowSidebar }) => {
+import { Link as link } from "react-router-dom";
+
+const SideBarRow = ({
+  title,
+  Icon,
+  IconActive,
+  showSidebar,
+  setShowSidebar,
+  changePage,
+  setChangePage,
+}) => {
+  const changeType = () => {
+    setShowSidebar(!showSidebar);
+    setChangePage(title);
+  };
+
   return (
-    <>
-      <Container onClick={() => setShowSidebar(!showSidebar)}>
-        <IconButtonContainer>{Icon && <Icon />}</IconButtonContainer>
-        <Title>{title}</Title>
-      </Container>
-    </>
+    <Links onClick={changeType} to={title === "Home" ? `/` : `/${title}`}>
+      <IconButtonContainer>
+        {changePage === title ? <IconActive /> : <Icon />}
+      </IconButtonContainer>
+      <Title>{title}</Title>
+    </Links>
   );
 };
 
 export default SideBarRow;
 
-const Container = styled.div`
+const Links = styled(link)`
+  text-decoration: none;
+
   padding: 8px 25px;
   cursor: pointer;
-  transition: all 0.35ms ease-in-out;
   display: flex;
   align-items: center;
   transition: all 0.35s ease-in-out;
@@ -24,6 +39,7 @@ const Container = styled.div`
     background-color: #666;
   }
 `;
+
 const IconButtonContainer = styled.div`
   display: flex;
   align-items: center;

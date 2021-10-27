@@ -4,9 +4,10 @@ import {
   PostContainer,
   PostThumbnail,
   PostBottomContainer,
-} from "../../styles/Post.style";
+} from "../styles/Post.style";
 const Loading = ({ type }) => {
-  if (type === "navloading") return Array(4).fill(<NavBarLoading />);
+  if (type === "navloading")
+    return Array(4).map((index) => <NavBarLoading key={index} />);
   if (type === "PostLoading") return Array(4).fill(<PostLoading />);
 };
 export default Loading;

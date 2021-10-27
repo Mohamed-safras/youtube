@@ -36,7 +36,7 @@ const Posts = ({ video }) => {
 };
 
 export default Posts;
-const Container = styled.div`
+export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   overflow: hidden;
